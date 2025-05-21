@@ -30,7 +30,7 @@ export const Footer = () => {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center"
                     >
-                        <img src="/whatsapp.svg" alt="WhatsApp" className="w-6 h-6"/>
+                        <img src="whatsapp.svg" alt="WhatsApp" className="w-6 h-6"/>
                     </a>
 
                     {/* Email Icon */}
@@ -38,7 +38,7 @@ export const Footer = () => {
                         href="mailto:hagar.ifrah94@gmail.com"
                         className="flex items-center justify-center"
                     >
-                        <img src="/message.svg" alt="Email" className="w-6 h-6"/>
+                        <img src="message.svg" alt="Email" className="w-6 h-6"/>
                     </a>
                 </div>
             </footer>

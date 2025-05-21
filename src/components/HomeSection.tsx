@@ -11,7 +11,7 @@ export const HomeSection = () => {
                         className="text-[20px] font-normal leading-normal text-black flex items-center gap-2"
                         style={{fontFamily: "Inter"}}
                     >
-                        Hi<img src="/wave.svg" alt="Wave" className="w-6 h-6"/>,I am
+                        Hi<img src="wave.svg" alt="Wave" className="w-6 h-6"/>,I am
                     </h2>
                     <p
                         className="text-[73px] font-bold leading-normal text-black"
@@ -49,7 +49,7 @@ export const HomeSection = () => {
                 <div className="flex-1 flex flex-col items-center mt-6 sm:mt-0">
                     <div className="w-[270px] flex flex-col items-center">
                         <img
-                            src="../public/designer_image@2x.png"
+                            src="designer_image@2x.png"
                             alt="Portfolio Illustration"
                             className="w-[270px] h-[270px] object-cover rounded-lg shadow-lg"
                         />
@@ -85,7 +85,7 @@ export const HomeSection = () => {
                             {/* Netivot, Israel */}
                             <div
                                 className="rounded-[55px] bg-white shadow-[2px_2px_36.4px_-10px_rgba(0,0,0,0.07)] flex h-[55px] p-[17px_28px] items-center justify-center gap-[10px]">
-                                <img src="/flag.svg" alt="Israel Flag" className="w-6 h-4"/>
+                                <img src="flag.svg" alt="Israel Flag" className="w-6 h-4"/>
                                 <p className="text-sm text-gray-600">Netivot, Israel</p>
                             </div>
                         </div>

@@ -77,7 +77,7 @@ export const Header = () => {
                 backdropFilter: "blur(42.35px)",
             }}
         >
-            <img src="/logo.svg" alt="Logo" style={{width: "88px", height: "18px"}}/>
+            <img src="logo.svg" alt="Logo" style={{width: "88px", height: "18px"}}/>
 
             <nav ref={navRef} className="relative flex gap-[34px] sm:gap-[68px]">
                 {navItems.map((item) => (
