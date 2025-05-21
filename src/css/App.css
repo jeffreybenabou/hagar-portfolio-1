@@ -1,0 +1,16 @@
+
+
+#root{
+  background-color: rgba(255, 255, 255, 1);
+  paddingBottom: 500px;
+  display: flex;
+  flex: 1;
+  font-family:  "Inter";
+  flex-direction: column;
+  color: black;
+}
+
+#sub_container{
+  background: linear-gradient( rgba(249, 250, 251, 1), rgba(255, 255, 255, 0));
+  border-radius: 50px;
+}

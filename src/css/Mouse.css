@@ -1,0 +1,19 @@
+
+@keyframes fadeInOut {
+    0% { transform: translateY(5px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(-5px); }
+}
+
+#mouse_container {
+    margin-top: 85px;
+    margin-bottom: 85px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#mouse_button{
+    animation: fadeInOut 1s infinite alternate cubic-bezier(0.2, 0.2, 0.2, 0.2);
+}

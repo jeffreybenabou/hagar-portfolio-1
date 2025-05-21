@@ -1,0 +1,49 @@
+.work {
+    margin-top: 10px;
+}
+
+#work_points {
+    margin-top: 10px;
+    display: flex;
+}
+
+#work_name {
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+#work_name::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    border-bottom: 1.5px solid #000000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.work:hover #work_name::after {
+    transform: scaleX(1);
+}
+
+/* New wrapper class to scale the image */
+.image-container {
+    overflow: hidden; /* Hide any overflowing part of the image when scaled */
+    border-radius: 20px; /* Apply border-radius to the container */
+}
+
+.work img {
+    transition: transform 0.2s ease-in-out;
+    will-change: transform;
+    border-radius: 20px; /* Apply border-radius to the image */
+}
+
+.work:hover .image-container img {
+    transform: scale(1.1); /* Larger scale when hovered */
+}

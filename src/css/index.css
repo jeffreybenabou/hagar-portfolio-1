@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100%; /* Prevents scrolling on the body */
+}
