@@ -35,6 +35,7 @@ export const Content = () => {
                 designProcess: "Design process details for Project One",
                 personas: {name: "John Doe", age: "28", education: "Bachelor's in Design"}
             }
+            
         },
         {
             src: "./public/work1.png",
