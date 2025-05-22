@@ -2,7 +2,7 @@ import {useState} from "react";
 import {WorkDetails} from "./WorkDetails";
 
 export interface WorkInterface {
-    type: string,
+    title: string,
     iconPath: string,
     description: string,
     mainImagePath: string,
@@ -11,19 +11,26 @@ export interface WorkInterface {
     personas: { name: string, age: string, education: string }
 }
 
+export interface ImageInterface {
+    src: string,
+    tags: string[],
+    name: string,
+    workItem: WorkInterface
+}
+
 export const Content = () => {
 
 
-    const [images] = useState([
+    const [images] = useState<ImageInterface[]>([
         {
             src: "./public/work1.png",
             tags: ["UI Design", "Web"],
             name: "Project One",
             workItem: {
-                type: "Web Design",
-                iconPath: "/path/to/icon1.png",
-                description: "Description for Project One",
-                mainImagePath: "./public/mainImage1.png",
+                title: "Mobile Design",
+                iconPath: "./effitask.svg",
+                description: `EffiTask is a smart task management app that lets you create, share,<br/>and manage tasks effortlessly. It features customizable categories,<br/>built-in chat, task sharing with friends, image and description<br/>attachments, participant management, and deadline scheduling—all<br/>in one place for an efficient and seamless experience.`,
+                mainImagePath: "./work1.png",
                 figmaLink: "https://figma.com/project-one",
                 designProcess: "Design process details for Project One",
                 personas: {name: "John Doe", age: "28", education: "Bachelor's in Design"}
@@ -34,7 +41,7 @@ export const Content = () => {
             tags: ["UX", "Mobile"],
             name: "Project Two",
             workItem: {
-                type: "Mobile Design",
+                title: "Mobile Design",
                 iconPath: "/path/to/icon2.png",
                 description: "Description for Project Two",
                 mainImagePath: "./public/mainImage2.png",
@@ -48,8 +55,8 @@ export const Content = () => {
             tags: ["Branding", "Logo"],
             name: "Project Three",
             workItem: {
-                type: "Branding",
-                iconPath: "/path/to/icon3.png",
+                title: "Branding",
+                iconPath: "./effitask.svg",
                 description: "Description for Project Three",
                 mainImagePath: "/path/to/mainImage3.jpg",
                 figmaLink: "https://figma.com/project-three",
@@ -59,12 +66,12 @@ export const Content = () => {
         },
     ]);
 
-    const [selectedWork, setSelectedWork] = useState(null);
+    const [selectedWork, setSelectedWork] = useState<ImageInterface>(null);
 
     return (
         <>
             {selectedWork && (
-                <WorkDetails work={selectedWork} onClose={() => setSelectedWork(null)}/>
+                <WorkDetails work={selectedWork.workItem} onClose={() => setSelectedWork(null)}/>
             )}
             <section
                 id="portfolio"

@@ -20,6 +20,7 @@ export const WorkDetails: React.FC<WorkDetailsProps> = ({work, onClose}) => {
         };
     }, []);
 
+    console.log("workwork", work)
     return (
         <section
             className="fixed inset-0 bg-white z-[100] flex flex-col items-center justify-start overflow-y-auto"
@@ -36,22 +37,28 @@ export const WorkDetails: React.FC<WorkDetailsProps> = ({work, onClose}) => {
             </button>
 
             <div className="flex flex-col items-start w-full px-80 md:px-50 sm:px-2 py-12">
-                <h1 className="text-2xl font-bold mb-4">{work.title}</h1>
-                <p className="text-gray-700 mb-6">{work.description}</p>
 
                 <div className="flex flex-col items-start gap-5">
                     <p className="text-black font-inter text-[17px] font-normal leading-normal">
-                        Mobile app
+                        {work.title}
                     </p>
                     <img src={work.iconPath} alt="Icon"/>
                     <p className="text-black font-inter text-[20px] font-normal leading-normal">
-                        EffiTask is a smart task management app that lets you create, share,
-                        <br/>and manage tasks effortlessly. It features customizable categories, <br/>
-                        built-in chat, task sharing with friends, image and description<br/>
-                        attachments, participant management, and deadline scheduling—all <br/>
-                        in one place for an efficient and seamless experience.
+                        {work.description.split('<br/>').map((line, index) => (
+                            <React.Fragment key={index}>
+                                {line}
+                                <br/>
+                            </React.Fragment>
+                        ))}
                     </p>
                     <hr/>
+                </div>
+
+                <div
+                    className="w-full aspect-square mt-[200px] rounded-[30px] bg-lightgray bg-cover bg-no-repeat bg-center"
+                    style={{
+                        backgroundImage: `url(${work.mainImagePath})`,
+                    }}>
                 </div>
             </div>
 
