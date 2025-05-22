@@ -23,7 +23,7 @@ export const Content = () => {
 
     const [images] = useState<ImageInterface[]>([
         {
-            src: "./public/work1.png",
+            src: "./work1.png",
             tags: ["UI Design", "Web"],
             name: "Project One",
             workItem: {

@@ -79,29 +79,53 @@ export const Header = () => {
         >
             <img src="logo.svg" alt="Logo" style={{width: "88px", height: "18px"}}/>
 
-            <nav ref={navRef} className="relative flex gap-[34px] sm:gap-[68px]">
+            <button
+                className="md:hidden text-black"
+                onClick={() => setSelected((prev) => (prev === "menu" ? "home" : "menu"))}
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3.75 5.75h16.5M3.75 12h16.5M3.75 18.25h16.5"
+                    />
+                </svg>
+            </button>
+
+            <nav
+                ref={navRef}
+                className={`${
+                    selected === "menu" ? "absolute top-full left-0 w-full bg-white shadow-lg" : "hidden"
+                } md:relative md:flex md:gap-[34px] sm:gap-[68px]`}
+            >
                 {navItems.map((item) => (
                     <a
                         key={item.id}
                         data-id={item.id}
                         href={`#${item.id}`}
                         onClick={() => setSelected(item.id)}
-                        className={`relative ${
-                            selected === item.id
-                                ? "text-black font-semibold"
-                                : "text-black font-normal"
+                        className={`block md:inline-block relative ${
+                            selected === item.id ? "text-black font-semibold" : "text-black font-normal"
                         }`}
                         style={{
                             fontFamily: "Inter",
                             fontSize: "17px",
                             lineHeight: "normal",
+                            padding: "1rem",
                         }}
                     >
                         {item.label}
                     </a>
                 ))}
                 <div
-                    className="absolute top-full mt-1 bg-black rounded-full transition-all duration-300"
+                    className="hidden md:block absolute top-full mt-1 bg-black rounded-full transition-all duration-300"
                     style={{
                         left: `${indicatorStyle.left}px`,
                         width: `${indicatorStyle.width}px`,
@@ -112,8 +136,7 @@ export const Header = () => {
             </nav>
 
             <button
-                className="text-white text-center font-inter text-[17px] font-semibold leading-normal py-2 px-4 rounded-full bg-[#212121] hover:bg-opacity-90"
-            >
+                className="hidden md:block text-white text-center font-inter text-[17px] font-semibold leading-normal py-2 px-4 rounded-full bg-[#212121] hover:bg-opacity-90">
                 Let's chat
             </button>
         </header>

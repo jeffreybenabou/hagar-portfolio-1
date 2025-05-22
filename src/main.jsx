@@ -1,12 +1,12 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import {createRoot} from "react-dom/client";
 import "./css/index.css";
-import Portfolio from "./Portfolio.tsx"; // Tailwind CSS entry
+import Portfolio from "./Portfolio"; // Tailwind CSS entry
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
  <React.StrictMode>
-  <Portfolio />
+  <Portfolio/>
  </React.StrictMode>
 );
