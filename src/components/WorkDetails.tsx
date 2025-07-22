@@ -55,10 +55,23 @@ export const WorkDetails: React.FC<WorkDetailsProps> = ({work, onClose}) => {
                 </div>
 
                 <div
-                    className="w-full aspect-square mt-[200px] rounded-[30px] bg-lightgray bg-cover bg-no-repeat bg-center"
+                    className="relative w-full aspect-square mt-[200px] rounded-[30px] bg-lightgray bg-cover bg-no-repeat bg-center"
                     style={{
                         backgroundImage: `url(${work.mainImagePath})`,
                     }}>
+                    {work.figmaLink && (
+                        <div className="absolute bottom-[-30px] left-20">
+                            <button
+                                onClick={() => window.open(work.websiteUrl, "_blank")}
+                                className="relative text-white text-center font-inter text-[17px] font-semibold leading-normal py-2 px-4 rounded-full bg-black w-[196px] h-[60px] group"
+                            >
+                                <div
+                                    className="absolute inset-0 border border-black rounded-full -rotate-5 group-hover:rotate-5 transition-transform duration-300"
+                                ></div>
+                                View Website
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
 
