@@ -28,6 +28,7 @@ const CONTACT_LINKS = [
 export const Footer = () => {
     return (
         <section id="contact">
+            <div className={"mt-[100px]"}/>
             <footer
                 className="w-full bg-[#212121] flex flex-col justify-center items-center gap-[33px] p-6 sm:p-[64px_366px] min-h-[354px] text-center">
                 <FooterContent

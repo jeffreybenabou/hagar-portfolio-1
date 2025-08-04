@@ -2,7 +2,9 @@ import React, {useEffect} from "react";
 import {WorkInterface} from "./Content";
 import {Personas} from "./Personas";
 import {AppScreenshots} from "./AppScreenshots";
+import {ColorPalettes} from "./ColorPalettes";
 import {Footer} from "../Footer";
+import {PortfolioButton} from "./PortfolioButton";
 
 
 interface WorkDetailsProps {
@@ -13,27 +15,26 @@ interface WorkDetailsProps {
 // Data for design process sections
 const DESIGN_PROCESS_SECTIONS = [
     {
-        title: "Research & Analysis",
+        title: "Research & UX Development",
         items: [
-            "Conducted user interviews to understand pain points and needs",
-            "Analyzed competitor apps and market trends",
-            "Created user personas and journey maps"
+            "User and target audience research",
+            "Defining the user experience concept",
+            "Wireframe creation"
         ]
     },
     {
-        title: "Design & Prototyping",
+        title: "UI Design",
         items: [
-            "Developed wireframes and low-fidelity prototypes",
-            "Created a comprehensive design system and style guide",
-            "Built high-fidelity mockups and interactive prototypes"
+            "Visual design language",
+            "Screen and icon design"
         ]
     },
     {
-        title: "Testing & Validation",
+        title: "Testing & Improvements",
         items: [
-            "Conducted usability testing with target users",
-            "Gathered feedback and iterated on design solutions",
-            "Validated final design with stakeholders and users"
+            "Usability testing",
+            "Optimization",
+            "Feedback and review"
         ]
     }
 ];
@@ -77,32 +78,33 @@ const WorkMainImage: React.FC<{ work: WorkInterface }> = ({work}) => (
     >
         {work.figmaLink && (
             <div className="absolute bottom-[-30px] left-4 sm:left-8 lg:left-20">
-                <button
+                <PortfolioButton
                     onClick={() => window.open(work.figmaLink, "_blank")}
-                    className="relative text-white text-center font-inter text-[14px] sm:text-[17px] font-semibold leading-normal py-2 px-3 sm:px-4 rounded-full bg-black w-[150px] sm:w-[196px] h-[50px] sm:h-[60px] group"
-                >
-                    <div
-                        className="absolute inset-0 border border-black rounded-full -rotate-5 group-hover:rotate-5 transition-transform duration-300"/>
-                    View Website
-                </button>
+                    backgroundColor="#000000"
+                    text="See in Figma"
+                    width="150px"
+                    height="50px"
+                    className="sm:w-[196px] sm:h-[60px] text-[14px] sm:text-[17px]"
+                />
             </div>
         )}
     </div>
 );
 
 // Component for design process section header
-const DesignProcessHeader: React.FC = () => (
+const DesignProcessHeader: React.FC<{ work: WorkInterface }> = ({work}) => (
     <div className="flex flex-col sm:flex-row items-start justify-between w-full mt-[200px] px-4 sm:px-0">
-        <div className="flex flex-col sm:flex-row sm:items-start sm:gap-12 w-full">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between sm:gap-12 w-full">
             <h2 className="text-black font-inter text-[24px] sm:text-[40px] font-bold leading-[1] mb-4 sm:mb-0 sm:min-w-fit">
                 The Design Process
             </h2>
-            <p className="text-black font-inter text-[16px] sm:text-[17px] font-normal leading-normal sm:flex-1">
-                The app design process included in-depth research of the target audience to shape an
-                intuitive and user-friendly UX experience, creating wireframes for the app structure, and
-                planning a clear screen flow. Then, we developed a UI with a clean and modern design
-                language. Finally, we conducted usability testing, improvements, and optimization to launch
-                a professional and user-friendly app for task management and collaboration.
+            <p className="text-black font-inter text-[16px] sm:text-[17px] font-normal leading-normal sm:flex-1 max-w-140">
+                {work.designProcessDescription.split('<br/>').map((line, index) => (
+                    <React.Fragment key={index}>
+                        {line}
+                        {index < work.designProcessDescription.split('<br/>').length - 1 && <br/>}
+                    </React.Fragment>
+                ))}
             </p>
         </div>
     </div>
@@ -152,11 +154,14 @@ const WorkContent: React.FC<{ work: WorkInterface }> = ({work}) => (
         <div className="flex flex-col items-start w-full px-4 sm:px-8 md:px-20 lg:px-30 py-12">
             <WorkHeader work={work}/>
             <WorkMainImage work={work}/>
-            <DesignProcessHeader/>
+            <DesignProcessHeader work={work}/>
             <DesignProcessSections/>
-            <Personas/>
-            <AppScreenshots/>
-
+            <Personas personaData={work.personaData}/>
+            <AppScreenshots screenshot={work.screenshot}/>
+            <ColorPalettes
+                explanation={work.colorPalette?.explanation}
+                colors={work.colorPalette?.colors}/>
+            <AppScreenshots screenshot={work.realScreenShot}/>
 
         </div>
 
@@ -177,16 +182,16 @@ export const WorkDetails: React.FC<WorkDetailsProps> = ({work, onClose}) => {
     }, []);
 
     return (
-        <section
-            className="fixed inset-0 bg-white z-[100] flex flex-col items-center justify-start overflow-y-auto"
-            style={{
-                top: "0",
-                bottom: "0",
-            }}
-        >
+        <div className="fixed bg-white z-[100] flex flex-col flex-1 justify-start overflow-y-auto"
+             style={{
+                 top: "0",
+                 bottom: "0",
+             }}>
             <CloseButton onClose={onClose}/>
             <WorkContent work={work}/>
             <Footer/>
-        </section>
+
+        </div>
+
     );
 };

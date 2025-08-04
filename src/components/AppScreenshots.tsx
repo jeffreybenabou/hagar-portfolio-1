@@ -19,8 +19,7 @@ const SECTION_DATA = {
     description: "Here are the key screens from the application showing the user interface design, user flow, and main functionality that brings the personas' needs to life."
 };
 
-export const AppScreenshots: React.FC<AppScreenshotsProps> = ({screenshots = []}) => {
-    const screenshotsToShow = screenshots.length > 0 ? screenshots : DEFAULT_SCREENSHOTS;
+export const AppScreenshots: React.FC<AppScreenshotsProps> = ({screenshot}) => {
 
     return (
         <div className="w-full mt-[200px] px-4 sm:px-0">
@@ -30,19 +29,15 @@ export const AppScreenshots: React.FC<AppScreenshotsProps> = ({screenshots = []}
             />
 
             <div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full"
+                className="flex justify-center w-full"
                 style={{
                     borderRadius: '25px',
                     background: 'lightgray'
                 }}
             >
-                {screenshotsToShow.map((screenshot, index) => (
-                    <ScreenshotCard
-                        key={index}
-                        screenshot={screenshot}
-                        index={index}
-                    />
-                ))}
+                <ScreenshotCard
+                    screenshot={screenshot}
+                />
             </div>
         </div>
     );

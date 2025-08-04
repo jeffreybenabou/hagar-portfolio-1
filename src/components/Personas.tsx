@@ -2,7 +2,24 @@ import React from "react";
 import {PersonasHeader} from "./PersonasHeader";
 import {PersonaDescription} from "./PersonaDescription";
 
-export const Personas: React.FC = () => {
+interface PersonasProps {
+    personaData?: {
+        women: {
+            name: string;
+            info: Array<{ title: string; subtitle: string }>;
+            goals: string[];
+            painPoints: string[];
+        };
+        men: {
+            name: string;
+            info: Array<{ title: string; subtitle: string }>;
+            goals: string[];
+            sideGoals: string[];
+        };
+    };
+}
+
+export const Personas: React.FC<PersonasProps> = ({personaData}) => {
     return (
         <div className="flex flex-col items-start w-full mt-[200px] px-4 sm:px-0">
             <PersonasHeader/>
@@ -15,6 +32,7 @@ export const Personas: React.FC = () => {
                         "./public/women_bottom_arrow.svg"
                     ]}
                     isWomen={true}
+                    personaData={personaData}
                 />
                 <div className={"mb-30"}/>
                 <PersonaDescription
@@ -25,6 +43,7 @@ export const Personas: React.FC = () => {
                         "./public/men_bottom_arrow.svg"
                     ]}
                     isWomen={false}
+                    personaData={personaData}
                 />
             </div>
         </div>

@@ -7,7 +7,7 @@ export const PersonasHeader: React.FC = () => {
                 Personas
             </h2>
             <p className="text-black font-inter text-[16px] sm:text-[17px] font-normal leading-normal">
-                The personas were selected based on the results of the survey I conducted, which outline the users'
+                The personas were selected based on the results of the survey I conducted,<br/> which outline the users'
                 challenges, goals, and guiding principles.
             </p>
         </div>
