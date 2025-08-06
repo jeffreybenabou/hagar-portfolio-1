@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { WorkDetails } from './WorkDetails';
 import { PortfolioButton } from './PortfolioButton';
 
 export interface WorkInterface {
@@ -40,7 +39,12 @@ export interface ImageInterface {
     workItem: WorkInterface
 }
 
-export const Content = () => {
+interface ContentProps {
+    selectedWork: ImageInterface | null;
+    setSelectedWork: (work: ImageInterface | null) => void;
+}
+
+export const Content = ({ selectedWork, setSelectedWork }: ContentProps) => {
   const [allImages] = useState<ImageInterface[]>([
     {
       src: './work1.png',
@@ -152,7 +156,6 @@ export const Content = () => {
   ]);
 
   const [showAllWorks, setShowAllWorks] = useState(false);
-  const [selectedWork, setSelectedWork] = useState<ImageInterface>(null);
 
   // Show only first 2 items initially, or all items when showAllWorks is true
   const visibleImages = showAllWorks ? allImages : allImages.slice(0, 2);
@@ -163,9 +166,6 @@ export const Content = () => {
 
   return (
     <>
-      {selectedWork && (
-        <WorkDetails work={selectedWork.workItem} onClose={() => setSelectedWork(null)}/>
-      )}
       <section
         id="portfolio"
         className="w-full sm:px-[150px] px-6 py-12"

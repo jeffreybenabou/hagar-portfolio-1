@@ -1,23 +1,36 @@
-import { Header } from './components/Header';
 import { HomeSection } from './components/HomeSection';
-import { Content } from './components/Content';
+import { Content, ImageInterface } from './components/Content';
 import { Skills } from './components/Skills';
 import { Footer } from './Footer';
 import { Mouse } from './components/Mouse';
-import React from 'react';
+import React, { useState } from 'react';
+import { WorkDetails } from './components/WorkDetails';
+import { Header } from './components/Header';
 
 const Portfolio = () => {
+  const [selectedWork, setSelectedWork] = useState<ImageInterface | null>(null);
+
+  const closeWorkDetails = () => {
+    setSelectedWork(null);
+  };
+
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header/>
-      <div className="bg-[##D9D9D9]">
-        <HomeSection/>
-        <Mouse/>
-        <Content/>
-        <Skills/>
-        <Footer/>
+    <div>
+      <Header onCloseWorkDetails={closeWorkDetails}/>
+      <div className="min-h-screen flex flex-col">
+        {selectedWork && (
+          <WorkDetails work={selectedWork.workItem} onClose={closeWorkDetails}/>
+        )}
+        <div className="bg-[##D9D9D9]">
+          <HomeSection/>
+          <Mouse/>
+          <Content selectedWork={selectedWork} setSelectedWork={setSelectedWork}/>
+          <Skills/>
+          <Footer/>
+        </div>
       </div>
     </div>
+
   );
 };
 
