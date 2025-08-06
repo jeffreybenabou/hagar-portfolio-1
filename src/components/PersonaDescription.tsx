@@ -96,12 +96,12 @@ const TopArrows: React.FC<{ arrows: string[]; isWomen?: boolean; personaData?: a
                 {isWomen ? (
                   <PersonaInfoBox
                     persona={currentPersonaData}
-                    className="absolute right-25 top-10 z-0 -translate-x-20 mr-2"
+                    className="hidden md:block absolute right-25 top-10 z-0 -translate-x-20 mr-2"
                   />
                 ) : (
                   <GoalsBox
                     goals={currentPersonaData.goals}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 -translate-x-full mr-2"
+                    className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 -translate-x-full mr-2"
                   />
                 )}
               </>
@@ -111,12 +111,12 @@ const TopArrows: React.FC<{ arrows: string[]; isWomen?: boolean; personaData?: a
                 {!isWomen ? (
                   <PersonaInfoBox
                     persona={currentPersonaData}
-                    className="absolute left-[-40px] top-30 -translate-y-1/3 ml-2"
+                    className="hidden md:block absolute left-[-40px] top-30 -translate-y-1/3 ml-2"
                   />
                 ) : (
                   <GoalsBox
                     goals={currentPersonaData.goals}
-                    className="absolute top-1/2 -translate-y-12 left-[-45px]"
+                    className="hidden md:block absolute top-1/2 -translate-y-12 left-[-45px]"
                   />
                 )}
               </>
@@ -124,6 +124,44 @@ const TopArrows: React.FC<{ arrows: string[]; isWomen?: boolean; personaData?: a
           </div>
         </React.Fragment>
       ))}
+    </div>
+  );
+};
+
+// Component for mobile content below image
+const MobileContentBelow: React.FC<{ isWomen?: boolean; personaData?: any }> = ({
+  isWomen = false,
+  personaData,
+}) => {
+  if (!personaData) {
+    return null;
+  }
+
+  const currentPersonaData = isWomen ? personaData.women : personaData.men;
+
+  return (
+    <div className="md:hidden flex flex-col items-center space-y-4 mt-6">
+      <PersonaInfoBox
+        persona={currentPersonaData}
+        className="w-full max-w-sm"
+      />
+      <GoalsBox
+        goals={currentPersonaData.goals}
+        className="w-full max-w-sm"
+      />
+      {/* Add side content for mobile */}
+      {!isWomen && personaData.men && (
+        <SideGoalsBox
+          goals={personaData.men.sideGoals}
+          className="w-full max-w-sm"
+        />
+      )}
+      {isWomen && personaData.women && (
+        <PainPointsBox
+          painPoints={personaData.women.painPoints}
+          className="w-full max-w-sm"
+        />
+      )}
     </div>
   );
 };
@@ -138,7 +176,7 @@ const MenSideContent: React.FC<{ arrow: string; personaData?: any }> = ({ arrow,
     <>
       <SideGoalsBox
         goals={personaData.men.sideGoals}
-        className="absolute left-315 top-1/2 -translate-y-1/2 -translate-x-[380%]"
+        className="hidden md:block absolute left-315 top-1/2 -translate-y-1/2 -translate-x-[380%]"
       />
       <Arrow
         src={arrow}
@@ -164,7 +202,7 @@ const WomenSideContent: React.FC<{ arrow: string; personaData?: any }> = ({ arro
       />
       <PainPointsBox
         painPoints={personaData.women.painPoints}
-        className="absolute top-1/2 -translate-y-0 translate-x-[135%]"
+        className="hidden md:block absolute top-1/2 -translate-y-0 translate-x-[135%]"
       />
     </>
   );
@@ -188,6 +226,7 @@ const PersonaImage: React.FC<{
         console.log('Image element:', e.target);
       }}
     />
+    <MobileContentBelow isWomen={isWomen} personaData={personaData}/>
   </div>
 );
 
