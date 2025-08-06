@@ -27,17 +27,17 @@ const SKILLS_DATA: SkillsData = {
     'Information Architecture',
   ],
   tools: [
-    { name: 'Figma', icon: './public/figma.svg' },
-    { name: 'Illustrator', icon: './public/AI.svg' },
-    { name: 'Photoshop', icon: './public/PS.svg' },
+    { name: 'Figma', icon: './figma.svg' },
+    { name: 'Illustrator', icon: './AI.svg' },
+    { name: 'Photoshop', icon: './PS.svg' },
     { name: '' }, // Line break
     { name: 'DUDA' },
-    { name: 'Wix', icon: './public/WIX.svg' },
-    { name: 'Elementor', icon: './public/elemntor.svg' },
+    { name: 'Wix', icon: './WIX.svg' },
+    { name: 'Elementor', icon: './elemntor.svg' },
     { name: 'Ai' },
     { name: '' }, // Line break
-    { name: 'XD', icon: './public/XD.svg' },
-    { name: 'WordPress', icon: './public/WP.svg' },
+    { name: 'XD', icon: './XD.svg' },
+    { name: 'WordPress', icon: './WP.svg' },
   ],
 };
 
@@ -103,7 +103,7 @@ export const Skills: React.FC = () => {
 
   return (
     <section
-      className="rounded-[40px] bg-[#fbfbfc] flex mx-auto max-w-full h-auto px-[90px] py-[60px] sm:mx-[150px] sm:h-[388px] flex-col items-start gap-[10px]"
+      className="rounded-[40px] bg-[#fbfbfc] flex mx-auto max-w-full h-auto px-[30px] py-[30px] sm:px-[90px] sm:py-[60px] sm:mx-[150px] sm:h-[388px] flex-col items-start gap-[10px]"
       style={{ backdropFilter: 'blur(29.25px)' }}>
       <h2 className="text-black font-inter text-[30px] sm:text-[40px] font-bold leading-normal">
                 MY SKILLS

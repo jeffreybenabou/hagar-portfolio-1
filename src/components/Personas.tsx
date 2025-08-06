@@ -25,22 +25,22 @@ export const Personas: React.FC<PersonasProps> = ({ personaData }) => {
       <PersonasHeader/>
       <div className="flex flex-col gap-8 w-full mt-8">
         <PersonaDescription
-          image="./public/women.svg"
+          image="./women.svg"
           arrows={[
-            './public/women_left_top_arrow.svg',
-            './public/women_top_right_arrow.svg',
-            './public/women_bottom_arrow.svg',
+            './women_left_top_arrow.svg',
+            './women_top_right_arrow.svg',
+            './women_bottom_arrow.svg',
           ]}
           isWomen={true}
           personaData={personaData}
         />
         <div className={'mb-30'}/>
         <PersonaDescription
-          image="./public/man.svg"
+          image="./man.svg"
           arrows={[
-            './public/men_top_arrow.svg',
-            './public/men_middle_arrow.svg',
-            './public/men_bottom_arrow.svg',
+            './men_top_arrow.svg',
+            './men_middle_arrow.svg',
+            './men_bottom_arrow.svg',
           ]}
           isWomen={false}
           personaData={personaData}

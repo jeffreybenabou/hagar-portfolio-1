@@ -53,7 +53,7 @@ export const Content = ({ selectedWork, setSelectedWork }: ContentProps) => {
       workItem: {
         title: 'Mobile app',
         iconPath: './effitask.svg',
-        realScreenShot: './public/effitask_real.png',
+        realScreenShot: './effitask_real.png',
         description: 'EffiTask is a smart task management app that lets you create, share,<br/>and manage tasks effortlessly. It features customizable categories,<br/>built-in chat, task sharing with friends, image and description<br/>attachments, participant management, and deadline scheduling—all<br/>in one place for an efficient and seamless experience.',
         mainImagePath: './work1.png',
         figmaLink: 'https://figma.com/project-one',
@@ -108,46 +108,46 @@ export const Content = ({ selectedWork, setSelectedWork }: ContentProps) => {
             ],
           },
         },
-        screenshot: './public/effittask_wireframe.png',
+        screenshot: './effittask_wireframe.png',
       },
     },
     {
-      src: './public/ocean.png',
+      src: './ocean.png',
       tags: ['discover', 'Mobile app'],
       name: 'OceanID',
       workItem: {
         title: 'Mobile Design',
         iconPath: '/path/to/icon2.png',
         description: 'Description for Project Two',
-        mainImagePath: './public/mainImage2.png',
+        mainImagePath: './mainImage2.png',
         figmaLink: 'https://figma.com/project-two',
         designProcess: 'Design process details for Project Two',
         personas: { name: 'Jane Smith', age: '32', education: 'Master\'s in UX Design' },
       },
     },
     {
-      src: './public/work3.png',
+      src: './work3.png',
       tags: ['E-commerce', 'Web Design'],
       name: 'ShopFlow',
       workItem: {
         title: 'E-commerce Website',
         iconPath: './shopflow.svg',
         description: 'A modern e-commerce platform with intuitive navigation and seamless checkout experience.',
-        mainImagePath: './public/work3.png',
+        mainImagePath: './work3.png',
         figmaLink: 'https://figma.com/project-three',
         designProcess: 'Design process details for ShopFlow',
         personas: { name: 'Sarah Wilson', age: '35', education: 'MBA in Business' },
       },
     },
     {
-      src: './public/work4.png',
+      src: './work4.png',
       tags: ['Health', 'Mobile App'],
       name: 'MediTrack',
       workItem: {
         title: 'Healthcare App',
         iconPath: './meditrack.svg',
         description: 'Personal health tracking app for medication reminders and health monitoring.',
-        mainImagePath: './public/work4.png',
+        mainImagePath: './work4.png',
         figmaLink: 'https://figma.com/project-four',
         designProcess: 'Design process details for MediTrack',
         personas: { name: 'Robert Chen', age: '42', education: 'Medical Background' },
@@ -202,7 +202,7 @@ export const Content = ({ selectedWork, setSelectedWork }: ContentProps) => {
         </div>
 
         {/* Toggle works button - always visible */}
-        <div className="flex justify-center mt-20 mb-[240px]">
+        <div className="flex justify-center mt-20 mb-0 sm:mb-[240px]">
           <PortfolioButton
             onClick={handleToggleWorks}
             className={'border-amber-950'}
