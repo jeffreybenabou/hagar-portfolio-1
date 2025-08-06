@@ -14,7 +14,7 @@ interface TextBoxWithTitleProps {
 export const TextBoxWithTitle: React.FC<TextBoxWithTitleProps> = ({ mainTitle, titleSubtitlePairs, className = '' }) => {
   return (
     <div
-      className={`rounded-[15px] bg-[rgba(249,250,251,0.66)] px-6 py-4 w-[435px] ${className} z-0`}
+      className={`rounded-[15px] bg-[rgba(249,250,251,0.66)] px-3 py-2 w-[435px] ${className} z-0`}
       style={{ backdropFilter: 'blur(29.200000762939453px)' }}
     >
       <div className="text-[#F95D8C] font-inter text-[30px] font-bold leading-normal mb-3 whitespace-nowrap z-0">
